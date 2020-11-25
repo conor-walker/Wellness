@@ -10,28 +10,22 @@ Current feature plans:
 Must-Have:
 
 - [x] Ask user a series of questions
-
 - [x] User input for answers
-
-- [] Store users answers in a text file
+- [ ] Store users answers in a text file
 
 
 Should Have:
 
 - [x] Menu system so users can select their category
-
-- [] Structured storage for user answers- maybe a JSON for example?
-
-- [] Store data per-day (e.g. use a date format rather than just a number for each 'entry')
+- [ ] Structured storage for user answers- maybe a JSON for example?
+- [ ] Store data per-day (e.g. use a date format rather than just a number for each 'entry')
 
 
 Could have:
 
-- [] Feedback on daily changes (i.e improvements in response for a category)
-
-- [] Simple graphs/charts
-
-- [] Keep comments/short notes in a days entry
+- [ ] Feedback on daily changes (i.e improvements in response for a category)
+- [ ] Simple graphs/charts
+- [ ] Keep comments/short notes in a days entry
 
 
 Won't have:
