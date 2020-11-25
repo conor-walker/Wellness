@@ -1,0 +1,14 @@
+Menu System:
+Introductory message w/ users name (asked on first run)
+Present options
+Take user input
+Input leads to specific module
+
+Modules:
+Menu system
+Exercise
+Mood
+Sleep
+Eating
+Hygiene
+Medication
