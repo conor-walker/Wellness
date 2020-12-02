@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Medicine {
     private static int MedInput() {
+        System.out.println();
         int medRating = 0;
         System.out.println("Please enter (1) if you have taken none of your medicine/supplements, (2) for some, or (3) for all: ");
         Scanner GetMed = new Scanner(System.in);
@@ -34,13 +35,12 @@ public class Medicine {
             case 2:
                 Feedback = "That's not bad! Try to take the rest if you can :)";
             case 1:
-                Feedback = "Sounds like you're having problems :(";
+                Feedback = "Sounds like you're having problems :( Do you think you'd be able to take even just one?";
                 break;
             default:
                 Feedback = "Looks like you're doing okay! :)";
         }
         return Feedback;
-
     }
 
     public static void GetSetMedicine() {

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Hygiene {
     private static int HygieneInput(){
         int hygieneRating = 0;
-        System.out.println("On a scale of 1 to 5 - 5 being best and 1 being worst - how are you feeling?");
+        System.out.println("Please select (1) if you've not done any hygiene rituals, (2) if you've done some, and (3) if you've done all of your usual self-care routines!");
         Scanner GetHygiene = new Scanner(System.in);
 
         boolean valid = false;
@@ -28,19 +28,15 @@ public class Hygiene {
         String Feedback="";
         LogWriter.writeLog(hygieneRating,"Hygiene");
         switch (hygieneRating){
-            case 5:
-                Feedback = "Looks like you're doing well! :)";
-            case 4:
-                Feedback = "Looks like you're doing well! :)";
-                break;
             case 3:
-                Feedback = "Looks like you're doing okay! :)";
-                break;
+                Feedback = "You're doing great!";
             case 2:
-                Feedback = "Sounds like you're having problems :(";
+                Feedback = "That's not bad! Try to do the rest if you can :)";
             case 1:
-                Feedback = "Sounds like you're having problems :(";
+                Feedback = "Sounds like you're having problems :( Please try to do just one small thing if you can - it could make all the difference :)";
                 break;
+            default:
+                Feedback = "Looks like you're doing okay! :)";
         }
         return Feedback;
     }

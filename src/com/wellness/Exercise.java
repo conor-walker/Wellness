@@ -1,14 +1,5 @@
 package com.wellness;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Exercise {
@@ -31,7 +22,6 @@ public class Exercise {
                 GetExercise.nextLine();
             }
         }
-        //TODO write exerciseRating to data file
         return exerciseRating;
     }
     private static String EvaluateExercise(int exerciseRating){
@@ -58,15 +48,4 @@ public class Exercise {
         System.out.println(EvaluateExercise(ExerciseInput()));
         Menu.MainMenu();
     }
-    public static void writeLog(int rating) {
-        LocalDate currentDate = LocalDate.now(); //gets todays date fo
-        //TODO Read rating array. Append to rating array if present, otherwise create new array
-
-        try (FileWriter file = new FileWriter("conor.txt",true)) {
-            file.write(currentDate + " Exercise rating: " + rating + "\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 }
