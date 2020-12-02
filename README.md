@@ -11,14 +11,14 @@ Must-Have:
 
 - [x] Ask user a series of questions
 - [x] User input for answers
-- [ ] Store users answers in a text file
+- [x] Store users answers in a text file
 
 
 Should Have:
 
 - [x] Menu system so users can select their category
 - [ ] Structured storage for user answers- maybe a JSON for example?
-- [ ] Store data per-day (e.g. use a date format rather than just a number for each 'entry')
+- [x] Store data per-day (e.g. use a date format rather than just a number for each 'entry')
 
 
 Could have:
