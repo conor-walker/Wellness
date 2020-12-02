@@ -8,7 +8,7 @@ public class Hygiene {
         System.out.println("On a scale of 1 to 5 - 5 being best and 1 being worst - how are you feeling?");
         Scanner GetHygiene = new Scanner(System.in);
 
-        Boolean valid = false;
+        boolean valid = false;
 
         while(!valid) {
             try {
@@ -22,11 +22,11 @@ public class Hygiene {
                 GetHygiene.nextLine();
             }
         }
-        //TODO write hygieneRating to data file
         return hygieneRating;
     }
     private static String EvaluateHygiene(int hygieneRating){
         String Feedback="";
+        LogWriter.writeLog(hygieneRating,"Hygiene");
         switch (hygieneRating){
             case 5:
                 Feedback = "Looks like you're doing well! :)";

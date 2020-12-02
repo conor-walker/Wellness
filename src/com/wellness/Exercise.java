@@ -1,4 +1,14 @@
 package com.wellness;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Exercise {
@@ -7,7 +17,7 @@ public class Exercise {
         System.out.println("On a scale of 1 to 5 - 5 being most active and 1 being least - how how active have you been?");
         Scanner GetExercise = new Scanner(System.in);
 
-        Boolean valid = false;
+        boolean valid = false;
 
         while(!valid) {
             try {
@@ -26,11 +36,12 @@ public class Exercise {
     }
     private static String EvaluateExercise(int exerciseRating){
         String Feedback="";
+        LogWriter.writeLog(exerciseRating,"Exercise");
         switch (exerciseRating){
             case 5:
-                Feedback = "Looks like you're doing well! :)";
+                Feedback = "Looks like you're doing great! :)";
             case 4:
-                Feedback = "Looks like you're doing well! :)";
+                Feedback = "Looks like you're doing great! :)";
                 break;
             case 3:
                 Feedback = "Looks like you're doing okay! :)";
@@ -47,4 +58,15 @@ public class Exercise {
         System.out.println(EvaluateExercise(ExerciseInput()));
         Menu.MainMenu();
     }
+    public static void writeLog(int rating) {
+        LocalDate currentDate = LocalDate.now(); //gets todays date fo
+        //TODO Read rating array. Append to rating array if present, otherwise create new array
+
+        try (FileWriter file = new FileWriter("conor.txt",true)) {
+            file.write(currentDate + " Exercise rating: " + rating + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

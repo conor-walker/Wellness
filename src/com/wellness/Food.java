@@ -8,7 +8,7 @@ public class Food {
         System.out.println("On a scale of 1 to 5 - 5 being best and 1 being worst - how have you been eating?");
         Scanner GetFood = new Scanner(System.in);
 
-        Boolean valid = false;
+        boolean valid = false;
 
         while(!valid) {
             try {
@@ -27,6 +27,7 @@ public class Food {
     }
     private static String EvaluateFood(int foodRating){
         String Feedback="";
+        LogWriter.writeLog(foodRating,"Food");
         switch (foodRating){
             case 5:
                 Feedback = "Looks like you're doing well! :)";

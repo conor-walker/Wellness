@@ -1,5 +1,8 @@
 package com.wellness;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 //TODO - make sleep evaluation in hours, rather than a rating scale
@@ -9,7 +12,7 @@ public class Sleep {
         System.out.println("On a scale of 1 to 5 - 5 being best and 1 being worst - how are you feeling?");
         Scanner GetSleep = new Scanner(System.in);
 
-        Boolean valid = false;
+        boolean valid = false;
 
         while(!valid) {
             try {
@@ -23,11 +26,11 @@ public class Sleep {
                 GetSleep.nextLine();
             }
         }
-        //TODO write sleepRating to data file
         return sleepRating;
     }
     private static String EvaluateSleep(int sleepRating){
         String Feedback;
+        LogWriter.writeLog(sleepRating,"Sleep");
         switch (sleepRating){
             case 2:
                 Feedback = "Sounds like you're having problems :(";
@@ -43,5 +46,4 @@ public class Sleep {
         System.out.println(EvaluateSleep(SleepInput()));
         Menu.MainMenu();
     }
-
 }

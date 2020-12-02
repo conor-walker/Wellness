@@ -8,7 +8,7 @@ public class Mood {
         System.out.println("On a scale of 1 to 5 - 5 being best and 1 being worst - how are you feeling?");
         Scanner GetMood = new Scanner(System.in);
 
-        Boolean valid = false;
+        boolean valid = false;
 
         while(!valid) {
             try {
@@ -22,11 +22,11 @@ public class Mood {
                 GetMood.nextLine();
             }
         }
-        //TODO write moodRating to data file
         return moodRating;
     }
     private static String EvaluateMood(int moodRating){
         String Feedback="";
+        LogWriter.writeLog(moodRating,"Mood");
         switch (moodRating){
             case 5:
                 Feedback = "Looks like you're doing well! :)";

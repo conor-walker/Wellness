@@ -16,6 +16,7 @@ public class Menu {
         System.out.println("(4) for Medication");
         System.out.println("(5) for Mood");
         System.out.println("(6) for Sleep");
+        System.out.println("(0) to Quit");
 
         Scanner getUserChoice = new Scanner(System.in);
         int userChoice = getUserChoice.nextInt();
@@ -34,6 +35,9 @@ public class Menu {
                 Mood.GetSetMood();
             case 6:
                 Sleep.GetSetSleep();
+            case 0:
+                System.out.println("Thank you! Have a good day!");
+                System.exit(0);
         }
     }
 
