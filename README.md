@@ -4,6 +4,7 @@ A simple wellness tracker in Java for a personal project.
 Currently implemented:
 
 Menu system. Prompts user to select a 'module', which ask the user a question. User gives their rating, then basic feedback is offered.
+Feedback is saved against the current date in a text file, saved to the user's desktop
 
 Current feature plans:
 
