@@ -1,5 +1,8 @@
 package com.wellness;
 
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Mood {
@@ -26,7 +29,11 @@ public class Mood {
     }
     private static String EvaluateMood(int moodRating){
         String Feedback="";
-        LogWriter.writeLog(moodRating,"Mood");
+        try {
+            JSONWriter.writeLog(moodRating,"Mood");
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
         switch (moodRating){
             case 5:
                 Feedback = "Looks like you're doing well! :)";
