@@ -1,5 +1,8 @@
 package com.wellness;
 
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 //TODO - make sleep evaluation in hours, rather than a rating scale
@@ -27,7 +30,11 @@ public class Sleep {
     }
     private static String EvaluateSleep(int sleepRating){
         String Feedback;
-        LogWriter.writeLog(sleepRating,"Sleep");
+        try {
+            JSONWriter.writeLog(sleepRating,"Sleep");
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
         switch (sleepRating){
             case 5:
             case 4:

@@ -1,5 +1,8 @@
 package com.wellness;
 
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Food {
@@ -22,12 +25,17 @@ public class Food {
                 GetFood.nextLine();
             }
         }
-        //TODO write foodRating to data file
         return foodRating;
     }
     private static String EvaluateFood(int foodRating){
         String Feedback="";
-        LogWriter.writeLog(foodRating,"Food");
+
+        try {
+            JSONWriter.writeLog(foodRating,"Food");
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+
         switch (foodRating){
             case 5:
                 Feedback = "Looks like you're doing well! :)";

@@ -1,5 +1,8 @@
 package com.wellness;
 
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Exercise {
@@ -26,7 +29,11 @@ public class Exercise {
     }
     private static String EvaluateExercise(int exerciseRating){
         String Feedback="";
-        LogWriter.writeLog(exerciseRating,"Exercise");
+        try {
+            JSONWriter.writeLog(exerciseRating,"Exercise");
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
         switch (exerciseRating){
             case 5:
                 Feedback = "Looks like you're doing great! :)";
