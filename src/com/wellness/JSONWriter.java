@@ -32,7 +32,6 @@ public class JSONWriter {
 
     public static JSONObject currentData() throws IOException, ParseException {
         String currentDate = LocalDate.now().toString(); //gets todays date
-        String testPath = "c:\\Users\\\\Conor\\Desktop\\test.json";
 
         JSONObject jsonObj = pastData();
         System.out.println("past data" + jsonObj);
