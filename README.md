@@ -18,7 +18,7 @@ Must-Have:
 Should Have:
 
 - [x] Menu system so users can select their category
-- [ ] Structured storage for user answers- maybe a JSON for example?
+- [x] Structured storage for user answers- maybe a JSON for example?
 - [x] Store data per-day (e.g. use a date format rather than just a number for each 'entry')
 
 
