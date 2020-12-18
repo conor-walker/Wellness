@@ -70,12 +70,4 @@ public class JSONWriter {
             writer.close();
         }
     }
-    public static void endOfDay() {
-        String desktopPath= System.getProperty("user.home") + "\\Desktop\\userLog.txt";
-        try (FileWriter file = new FileWriter(desktopPath,true)) {
-            file.write("_______________________________");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
