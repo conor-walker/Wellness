@@ -1,24 +1,23 @@
 package com.wellness;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
 import java.time.LocalDate;
-import java.util.HashMap;
 
 public class JSONWriter {
 
     public static void writeLog(int rating, String module) throws IOException, ParseException {
-        LocalDate currentDate = LocalDate.now(); //gets todays date
+        String currentDate = LocalDate.now().toString(); //gets todays date
         String testPath = "c:\\Users\\\\Conor\\Desktop\\test.json";
-        JSONObject categoryRating = JSONReader();
 
+        JSONObject day = pastData(); //working fine
+        JSONObject categoryRating = currentData();
         categoryRating.put(module,rating);
+        categoryRating.remove("TempKey"); //removes temporary key if present
 
-        JSONObject day = new JSONObject();
         day.put(currentDate, categoryRating);
 
         try {
@@ -31,31 +30,46 @@ public class JSONWriter {
         }
     }
 
-    public static JSONObject JSONReader() throws IOException, ParseException {
+    public static JSONObject currentData() throws IOException, ParseException {
         String currentDate = LocalDate.now().toString(); //gets todays date
-
         String testPath = "c:\\Users\\\\Conor\\Desktop\\test.json";
+
+        JSONObject jsonObj = pastData();
+        System.out.println("past data" + jsonObj);
+
+        return (JSONObject) jsonObj.get(currentDate);
+    }
+
+    public static JSONObject pastData() throws IOException, ParseException {
+        createFileIfEmpty();
+        String currentDate = LocalDate.now().toString(); //gets todays date
+        String testPath = "c:\\Users\\\\Conor\\Desktop\\test.json";
+
+        JSONObject empty = new JSONObject();
+        empty.put("TempKey","TempValue"); //initialises object, deletes
 
         JSONParser parser = new JSONParser();
         Reader reader = new FileReader(testPath);
 
-        JSONObject jsonObj = null;
-
-        try {
-            jsonObj = (JSONObject)parser.parse(reader);
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
-            FileWriter file = new FileWriter(testPath);
-            JSONObject day = new JSONObject();
-            day.put(currentDate, "");
-            file.write(day.toJSONString());
+        JSONObject historyData = (JSONObject) parser.parse(reader);
+        if (historyData.get(currentDate) == null) {
+            historyData.put(currentDate, empty);
         }
 
-        JSONObject currentDayData = (JSONObject) jsonObj.get(currentDate);
         reader.close();
-        return currentDayData;
+        return historyData;
     }
 
+    public static void createFileIfEmpty() throws IOException {
+        String testPath = "c:\\Users\\\\Conor\\Desktop\\test.json";
+        File file = new File(testPath);
+        if(file.length()==0){
+            String init = "{}";
+            BufferedWriter writer = new BufferedWriter(new FileWriter(testPath));
+            writer.write(init);
+            writer.close();
+        }
+    }
     public static void endOfDay() {
         String desktopPath= System.getProperty("user.home") + "\\Desktop\\userLog.txt";
         try (FileWriter file = new FileWriter(desktopPath,true)) {
