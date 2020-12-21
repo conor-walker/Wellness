@@ -25,7 +25,6 @@ public class Medicine {
                 GetMed.nextLine();
             }
         }
-        //TODO write medRating to data file
         return medRating;
     }
 
@@ -39,8 +38,10 @@ public class Medicine {
         switch (medRating) {
             case 3:
                 Feedback = "You're doing great!";
+                break;
             case 2:
                 Feedback = "That's not bad! Try to take the rest if you can :)";
+                break;
             case 1:
                 Feedback = "Sounds like you're having problems :( Do you think you'd be able to take even just one?";
                 break;

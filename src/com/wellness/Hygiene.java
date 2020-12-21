@@ -37,8 +37,10 @@ public class Hygiene {
         switch (hygieneRating){
             case 3:
                 Feedback = "You're doing great!";
+                break;
             case 2:
                 Feedback = "That's not bad! Try to do the rest if you can :)";
+                break;
             case 1:
                 Feedback = "Sounds like you're having problems :( Please try to do just one small thing if you can - it could make all the difference :)";
                 break;

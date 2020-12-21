@@ -42,7 +42,10 @@ public class Sleep {
                 break;
             case 3:
                 Feedback = "That's okay! You're doing well :)";
+                break;
             case 2:
+                Feedback = "That's not too bad - you're doing okay :)";
+                break;
             case 1:
                 Feedback = "Sounds like you're having problems :( You might want to try turning off your electronics " +
                         "a few hours before you go to bed, or look up some recommendations - if you haven't already";

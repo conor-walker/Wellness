@@ -1,8 +1,6 @@
 package com.wellness;
 import java.util.Scanner;
 //TODO - could greatly simplify module system using a parent Module class with each module being a subclass.
-// Would need to know more on how inheritance works before implementing this - esp wrt the values in variables
-// Would like to make log output in a JSON or DB file for easy lookup & comparison. Tried to use a JSON, failed. Went with plain text for now!
 // Would like to have graphs/charts to show progress - would need ability to look up days & ratings for that
 
 public class Menu {
@@ -23,8 +21,21 @@ public class Menu {
         System.out.println("(0) to Quit");
 
         Scanner getUserChoice = new Scanner(System.in);
-        int userChoice = getUserChoice.nextInt();
+        boolean valid = false;
+        int userChoice = 0;
 
+        while (!valid) {
+            try {
+                userChoice = getUserChoice.nextInt();
+                if (userChoice > 6 || userChoice < 0) {
+                    throw new Exception(""); // checks that input is in given range, moves to catch block if not
+                }
+                valid = true;
+            } catch (Exception e) {
+                System.out.println("Please ensure you're entering a number between 0 and 3: ");
+                getUserChoice.nextLine();
+            }
+        }
 
         switch (userChoice){
             case 1:
